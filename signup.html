@@ -1,0 +1,186 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>SIGN UP</title>
+    <link rel="stylesheet" href="CSS/style.css">
+    <link rel="stylesheet" href="CSS/bootstrap.min.css">
+    <!-- <link href='https://fonts.googleapis.com/css?family=Cinzel Decorative' rel='stylesheet'> -->
+    <link href='https://fonts.googleapis.com/css?family=Courgette' rel='stylesheet'>
+    
+    <script>
+        function validatePassword(password) {
+            
+            // Do not show anything when the length of password is zero.
+            if (password.length === 0) {
+                document.getElementById("msg").innerHTML = "";
+                return;
+            }
+            // Create an array and push all possible values that you want in password
+            var matchedCase = new Array();
+            matchedCase.push("[$@$!%*#?&]"); // Special Charector
+            matchedCase.push("[A-Z]");      // Uppercase Alpabates
+            matchedCase.push("[0-9]");      // Numbers
+            matchedCase.push("[a-z]");     // Lowercase Alphabates
+
+            // Check the conditions
+            var ctr = 0;
+            for (var i = 0; i < matchedCase.length; i++) {
+                if (new RegExp(matchedCase[i]).test(password)) {
+                    ctr++;
+                }
+            }
+            // Display it
+           
+            var color = "";
+            var strength = "";
+            switch (ctr) {
+                case 0:
+                case 1:
+                case 2:
+                    strength = "Very Weak";
+                    color = "red";
+                    password.color="red";
+                    break;
+                case 3:
+                    strength = "Medium";
+                    color = "orange";
+                    break;
+                case 4:
+                    strength = "Strong";
+                    color = "green";
+                    break;
+            }
+            document.getElementById("msg").innerHTML = strength;
+            document.getElementById("msg").style.color = color;
+        }
+    </script>
+    <!-- <script> 
+        function phonenumber()
+         {
+           
+        var phoneno = /^[0-9]{3,3}[-. ]?[0-9]{3,3}[-. ]?[0-9]{4,4}$/;
+        var text=document.getElementById("inputtxt").value;
+        if (text.length === 0) {
+                document.getElementById("msg2").innerHTML = "";
+                return;
+        var vali="";
+        
+       if(phoneno.test(text))
+       //if((inputtxt.value.match(phoneno)))
+        {
+         //return true;
+         //vali="Valid";
+         document.write("Valid");
+        }
+         else
+        {
+           // vali="Invalid";
+         alert("Not A Valid Number");
+        //return false;
+        }
+        document.getElementById("msg2").innerHTML = vali;
+           // document.getElementById("errorc").style.color = red;
+         } 
+
+     </script> -->
+</head>
+<body >
+    <header>
+        <img src="Images/KeralaLogo.png" alt="logo" >
+        <div class="head-tag">
+        <a href="index.html">HOME</a>
+        <a href="about.html">ABOUT</a>
+        <a href="districts.html">DISTRICTS</a>
+        <a href="signin.html">SIGN IN</a>
+        <a href="signup.html">SIGN UP</a>
+         </div>
+    </header>
+    <form action="foundation1.html" class="login" onsubmit="return notEmpty()";>
+        <h2>SIGN UP</h2>
+        <br>
+        <div class="login-cont">
+            <label>USERNAME</label>
+            <br>
+            <input type="text" placeholder="Enter the username" required> 
+            
+        </div>
+        <br>
+        <div class="login-cont">
+            <label>FULL NAME</label>
+            <br>
+            <input type="text" placeholder="Full Name" required>
+        </div>
+        <br>
+        <div class="login-cont">
+            <label>EMAIL</label>
+            <br>
+            <input type="text" id="email1" placeholder="Enter the email address" required>
+            <label for="error" id="errorp"></label>
+        </div>
+        <br>
+        <div class="login-cont">
+            <label>CONTACT NO.</label>
+            <br>
+            <input type="tel"  placeholder="Enter the mobile number" pattern="[0-9]{3}[-. ]?[0-9]{3}[-. ]?[0-9]{4}" title="Supported formats XXX XXX XXXX,XXX.XXX.XXXX,XXX-XXX-XXXX"id="inputtxt" required >
+           <!-- <label for="error" id="errorc"></label> -->
+        </div>
+        <br>
+        
+        <div class="login-cont">
+            <label>Create Password</label>
+            <br>
+           <!-- <title>Enter a password with an Uppercase Lowercase number and Special charecters</title> -->
+            <input type="password" placeholder="Enter the password" required id="pwd" pattern="[A-Za-z0-9!@$#%&*?]{8,16}" title="Should contain min 8 characters,Atleast one Uppercase,lowercase,number and a special charecter(!@#$%&*?)"onkeyup="validatePassword(this.value);"/><span id="msg"></span>
+        </div>
+
+            <br>
+            <!-- <div class="login-cont">
+                <label>Confirm Password</label>
+                <br>
+                <input type="password" placeholder="Enter the password" required id="pwd1" >
+            </div>
+            <br> -->
+            
+            
+        <div >
+            <input id="login-but" type="submit" value="SIGN UP" onsubmit="phonenumber()">
+        </div>
+        <br>
+        <div class="miscella">
+            <h5>Already Have An Account?</h5>
+            <a href="signin.html">SIGN IN</a>
+        </div>
+    </form>
+    <script src="form1.js">
+
+
+    </script>
+    <!-- <div> -->
+    <!-- <img src="images/jf.png" alt="Join-Our-Family"> -->
+<!-- </div> -->
+<img src="Images/jf.png" class="rounded float-right" style="max-width: 200px;" height="100cm" alt="Join-Our-Family">
+    <!-- Footer -->
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+    <br>
+<footer class="page-footer font-small blue">
+
+    <!-- Copyright -->
+    <div class="footer-copyright text-center py-3">© 2020 Copyright:
+      <a href="index.html"> Kerala Tourism</a>
+    </div>
+    <!-- Copyright -->
+  
+  </footer>
+  <!-- Footer -->
+      
+</body>
+</html>
